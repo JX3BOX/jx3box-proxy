@@ -8,8 +8,9 @@ router.get("/gsearch/jsonapi", async (ctx, next) => {
     if (ctx.query.q) {
         let q = encodeURIComponent(ctx.query.q)
         console.log(`[gsearch/jsonapi] parse query : ${q}`)
-        data = await gsearch_jsonapi(q)
-        data = data ? data : ''
+        let res = await gsearch_jsonapi(q)
+        // console.dir(res.data)
+        data = res ? res.data : ''
     }
     ctx.response.type = "application/json";
     ctx.response.body = data;
@@ -20,8 +21,9 @@ router.get("/gsearch/cse", async (ctx, next) => {
     if (ctx.query.q) {
         let q = encodeURIComponent(ctx.query.q)
         console.log(`[gsearch/cseapi] parse query : ${q}`)
-        data = await gsearch_cse(q)
-        data = data ? data : ''
+        let res = await gsearch_cse(q)
+        // console.log(res.data)
+        data = res ? res.data : ''
     }
     ctx.response.type = "application/javascript";
     ctx.response.body = data;
