@@ -7,11 +7,13 @@ const $axios = axios.create({
 module.exports = async function (query){
     const url = `https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=zh-CN&source=gcsc&gss=.com&cselibv=8b2252448421acb3&cx=011450975203877314992:itycvatvhcp&q=${query}&safe=off&cse_tok=AJvRUv1uzoZVBPZdoY2V12TSDcYm:1583494719524&sort=&exp=csqr,cc&callback=googlecse`
 
+    console.log(`[gsearch/cseapi] ready get : ${url}`)
     let result = null
     try{
         result = await $axios.get(url)
     }catch(e){
         console.log('google cse api error')
     }
+    console.log(`[gsearch/cseapi] result : ${result}`)
     return result
 }

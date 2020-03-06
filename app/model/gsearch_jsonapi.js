@@ -13,11 +13,13 @@ module.exports = async function (query){
     const url = api + '?' + 'cx=' + cx + '&key=' + key + '&q=' + query
     //const url = api + '?' + 'cx=' + cx + '&key=' + key + '&q=' + query
 
+    console.log(`[gsearch/jsonapi] ready get : ${url}`)
     let result = null
     try{
         result = await $axios.get(url)
     }catch(e){
         console.log('google json api error')
     }
+    console.log(`[gsearch/jsonapi] result : ${result}`)
     return result
 }
