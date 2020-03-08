@@ -23,4 +23,5 @@ app.use(parser())
 //处理
 InitManager.initCore(app)
 
-app.listen(3000)
+app.listen(1024)
+console.log('jx3box proxy is running on http://localhost:1024')
