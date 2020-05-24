@@ -22,6 +22,7 @@
     "nodemon": "^1.19.4"
   },
   "scripts": {
-    "serve": "nodemon app.js"
+    "start": "nodemon app.js",
+    "serve": "pm2 start app.js --name=\"jx3box-proxy\""
   }
 }
